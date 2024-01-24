@@ -4,7 +4,6 @@ return {
     {
         'junegunn/fzf.vim',
         event = 'VeryLazy',
-		enabled = false,  -- 暂不启用
         keys = {
             {'<leader>b', ':Buffers<CR>', mode = {'n'}},
             {'<C-g>', ':Files<CR>', mode = {'n'}},
@@ -24,13 +23,14 @@ return {
         -- brew install ripgrep fd
         -- apt-get install ripgrep fd-find
         "nvim-telescope/telescope.nvim",
+        enabled = false,  -- 暂不启用
         dependencies = {
             "nvim-lua/plenary.nvim", -- Lua 开发模块
             "BurntSushi/ripgrep", -- 文字查找
             "sharkdp/fd" -- 文件查找
         },
         config = require('configs.telescope'),
-		-- 安装后 TSInstall lua python
+        -- 安装后 TSInstall lua python
     },
     -- git
     {
