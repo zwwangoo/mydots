@@ -1,6 +1,6 @@
 return {
     -- 命令行搜索工具 brew install fzf 
-	-- 使用telescope替代
+    -- 使用telescope替代
     {
         'junegunn/fzf.vim',
         event = 'VeryLazy',
@@ -59,32 +59,18 @@ return {
         }
     },
     {
-        -- 使用hop.vim替代
-        'Lokaltog/vim-easymotion',
-        lazy = true,
-		enabled = false,  -- 暂不启用
-        keys = {
-            { "<leader>j", "<Plug>(easymotion-j)", desc = "<Plug>(easymotion-j)" },
-            { "<leader>k", "<Plug>(easymotion-k)", desc = "<Plug>(easymotion-k)" },
-            { "<leader>s", "<Plug>(easymotion-s2)", desc = "<Plug>(easymotion-s2)" },
-            { "<leader>.", "<Plug>(easymotion-repeat)", desc = "<Plug>(easymotion-repeat)" },
-        },
-        config = function()
-            vim.g.EasyMotion_do_mapping = false
-            vim.g.EasyMotion_smartcase = true
-            vim.g.EasyMotion_startofline = false
-        end
-    },
-    {
         'phaazon/hop.nvim', branch = 'v2',
         keys = {
-            {'<leader>j', '<Cmd>HopWord<CR>', mode = 'n', silent = true},
-            {'<leader>k', '<Cmd>HopWord<CR>', mode = 'n', silent = true},
+            {'<leader>j', '<Cmd>HopWordAC<CR>', mode = 'n', silent = true},
+            {'<leader>k', '<Cmd>HopWordBC<CR>', mode = 'n', silent = true},
             -- {'<leader>k', '<Cmd>HopLine<CR>', mode = 'n', silent = true},
-            -- {'<leader>k', '<Cmd>HopWordCurrentLine<CR>', mode = 'n', silent = true},
+            {'<leader>l', '<Cmd>HopWordCurrentLine<CR>', mode = 'n', silent = true},
         },
         config = function()
-            require('hop').setup()
+            require('hop').setup({
+                keys = 'etovxqpdygfblzhckisuran',
+                create_hl_autocmd = false,
+            })
         end
     },
     {
@@ -169,7 +155,7 @@ return {
             end
         end,
         event = "BufReadPre",
-		enabled = false,  -- 暂不启用
+        enabled = false,  -- 暂不启用
         config = require("configs.treesitter"),
         dependencies = {
             { "andymass/vim-matchup" },
