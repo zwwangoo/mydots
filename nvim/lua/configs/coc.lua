@@ -7,6 +7,7 @@ return function()
 		'coc-imselect',
 		'coc-tabnine',
 		'coc-jedi',
+		'coc-codegeex',
 	}
 	vim.g.disable_lsp = true
 	vim.opt.backup = false

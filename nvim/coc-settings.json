@@ -1,6 +1,6 @@
 {
-  "diagnostic.enable": true,
-  "diagnostic.displayByAle": false,
+  "diagnostic.enable": false,
+  "diagnostic.displayByAle": true,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.enableSign": false,
   "jedi.enable": true,
@@ -45,5 +45,15 @@
   },
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   "imselect.enableFloating": false,
-  "imselect.enableStatusItem": false
+  "imselect.enableStatusItem": false,
+  "rust-analyzer.enable": true,
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**"
+  ],
+  "codegeex": {
+    "apiKey": "",
+    "apiSecret": ""
+  }
 }
