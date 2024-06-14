@@ -56,4 +56,5 @@
     "apiKey": "",
     "apiSecret": ""
   }
+  "colors.enable": true
 }

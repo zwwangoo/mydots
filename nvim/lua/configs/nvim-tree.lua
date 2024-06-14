@@ -15,7 +15,7 @@ return function()
 			adaptive_size = true,
 			centralize_selection = true,
 			width = 30,
-			side = "left",
+			side = "right",
 			preserve_window_proportions = true,
 			number = false,
 			relativenumber = false,
