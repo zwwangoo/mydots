@@ -89,16 +89,10 @@ install_neovim(){
 if [[ "$arch" == *"darwin"* ]]; then
     brew install ripgrep fd git
 else
-    # 安装fd
-    if [ ! -x "$(command -v fd)" ]; then
-        curl -LO https://github.com/sharkdp/fd/releases/download/v7.4.0/fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz
-        tar -C /opt -zxvf fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz
-        cp /opt/fd-v7.4.0-x86_64-unknown-linux-musl/fd /usr/local/bin/
-        cp /opt/fd-v7.4.0-x86_64-unknown-linux-musl/fd.1 /usr/local/share/man/man1/
-    fi
 
     if command -v apt-get &> /dev/null; then
-        apt-get install -y ripgrep
+        apt update && apt upgrade
+        apt install -y curl ripgrep clang
     elif command -v yum &> /dev/null; then
         # install rg
         yum install -y yum-utils git gcc
@@ -113,6 +107,17 @@ else
         yum install -y git236
     else
         echo "Neither apt-get, yum nor dnf found. Please install ripgrep and fd-find manually."
+    fi
+
+    # 安装fd
+    if [ ! -x "$(command -v fd)" ]; then
+        curl -LO https://github.com/sharkdp/fd/releases/download/v7.4.0/fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz
+        tar -C /opt -zxvf fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz
+        cp /opt/fd-v7.4.0-x86_64-unknown-linux-musl/fd /usr/local/bin/
+        if [ -d "/usr/local/share/man/man1" ]; then
+            cp /opt/fd-v7.4.0-x86_64-unknown-linux-musl/fd.1 /usr/local/share/man/man1/
+        fi
+        rm -rf fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz
     fi
 fi
 

@@ -48,6 +48,13 @@ local plugins = {
             end
         end
     },
+    {
+        -- python配色
+        'numirias/semshi',
+        lazy = true,
+        event = "BufReadPre",
+        build = ":UpdateRemotePlugins",
+    }
 }
 
 if not vim.g.vscode then
@@ -136,6 +143,7 @@ if not vim.g.vscode then
             "nvim-treesitter/nvim-treesitter",
             lazy = true,
             event = "BufReadPre",
+            enabled = false,
             build = ":TSUpdate",
             config = function () 
                 local configs = require("nvim-treesitter.configs")
